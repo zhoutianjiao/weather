@@ -1,0 +1,83 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页",
+				 "enablePullDownRefresh": true,  //设置为true表示当前页面开启下拉刷新
+				"backgroundTextStyle": "dark"  //下拉 loading 的样式，仅支持 dark/light
+			}
+		},
+		{
+			"path": "pages/wealist/wealist",
+			"style": {
+				"navigationBarTitleText": "预告"
+			}
+		},
+		{
+			"path": "pages/find/find",
+			"style": {
+				"navigationBarTitleText": "发现"
+			}
+		},
+		{
+			"path": "pages/about/about",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	    ,{
+            "path" : "pages/index/lifedet",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "生活指数"
+			}
+            
+        }
+        ,{
+            "path" : "pages/404page/404page",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar":{
+		"color":"#333333",
+		"selectedColor":"#1296db",
+		"borderStyle":"black",
+		"list":[
+			{
+				"pagePath":"pages/index/index",
+				"text":"首页",
+				"iconPath":"static/tabars/home.png",
+				"selectedIconPath":"static/tabars/home1.png"
+			},
+			{
+				"pagePath":"pages/wealist/wealist",
+				"text":"预告",
+				"iconPath":"static/tabars/list.png",
+				"selectedIconPath":"static/tabars/list1.png"
+			},
+			{
+				"pagePath":"pages/find/find",
+				"text":"发现",
+				"iconPath":"static/tabars/add.png",
+				"selectedIconPath":"static/tabars/add1.png"
+			},{
+				"pagePath":"pages/about/about",
+				"text":"我的",
+				"iconPath":"static/tabars/user.png",
+				"selectedIconPath":"static/tabars/user1.png"
+			}
+		]
+	}
+}

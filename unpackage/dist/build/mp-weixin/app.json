@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/wealist/wealist",
+    "pages/find/find",
+    "pages/about/about",
+    "pages/index/lifedet",
+    "pages/404page/404page"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabars/home.png",
+        "selectedIconPath": "static/tabars/home1.png"
+      },
+      {
+        "pagePath": "pages/wealist/wealist",
+        "text": "预告",
+        "iconPath": "static/tabars/list.png",
+        "selectedIconPath": "static/tabars/list1.png"
+      },
+      {
+        "pagePath": "pages/find/find",
+        "text": "发现",
+        "iconPath": "static/tabars/add.png",
+        "selectedIconPath": "static/tabars/add1.png"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "text": "我的",
+        "iconPath": "static/tabars/user.png",
+        "selectedIconPath": "static/tabars/user1.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "本服务需要获取您的位置信息"
+    }
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}
