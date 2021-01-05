@@ -18,9 +18,9 @@ let $http = new request({
 	// 默认配置（可不写）
 	config: {
 		// 是否自动提示错误
-		isPrompt: true,
+		isPrompt: false,
 		// 是否显示加载动画
-		load: true,
+		load: false,
 		// 是否使用数据工厂
 		isFactory: false
 	}
@@ -77,7 +77,7 @@ $http.requestStart = function(options) {
 		}
 	}
 	//请求前加入token
-	options.header['token'] = "你的项目登录token";
+	// options.header['token'] = "你的项目登录token";
 	return options; // return false 表示请求拦截，不会继续请求
 }
 //请求结束

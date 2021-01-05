@@ -92,7 +92,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var components
+var components = {
+  uniList: function() {
+    return __webpack_require__.e(/*! import() | components/uni-list/uni-list */ "components/uni-list/uni-list").then(__webpack_require__.bind(null, /*! @/components/uni-list/uni-list.vue */ 93))
+  },
+  uniListItem: function() {
+    return __webpack_require__.e(/*! import() | components/uni-list-item/uni-list-item */ "components/uni-list-item/uni-list-item").then(__webpack_require__.bind(null, /*! @/components/uni-list-item/uni-list-item.vue */ 100))
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -130,7 +137,15 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -150,44 +165,67 @@ var _default =
 {
   data: function data() {
     return {
-      xhrlist: [
-      {
-        id: 1,
-        imgurl: __webpack_require__(/*! ../../static/404/x2.png */ 36) },
-
-      {
-        id: 2,
-        imgurl: __webpack_require__(/*! ../../static/404/x3.png */ 37) },
-
-      {
-        id: 3,
-        imgurl: __webpack_require__(/*! ../../static/404/x4.png */ 38) },
-
-      {
-        id: 4,
-        imgurl: __webpack_require__(/*! ../../static/404/x5.png */ 39) },
-
-      {
-        id: 5,
-        imgurl: __webpack_require__(/*! ../../static/404/x6.png */ 40) },
-
-      {
-        id: 6,
-        imgurl: __webpack_require__(/*! ../../static/404/x7.png */ 41) },
-
-      {
-        id: 7,
-        imgurl: __webpack_require__(/*! ../../static/404/x8.png */ 42) }] };
-
-
+      userinfo: {},
+      stats: false,
+      statuss: true };
 
   },
   onLoad: function onLoad() {
+    // 获取本地用户信息
+    var _this = this;
+    uni.getStorage({
+      key: 'userinfo',
+      success: function success(res) {
+        _this.userinfo = res.data;
+        console.log(_this.userinfo, 'xxx');
+      } });
 
   },
   onShow: function onShow() {
+    var _this = this;
+    uni.getSetting({
+      // 判断用户是否授权
+      success: function success(res) {
+        console.log("授权：", res);
+        if (!res.authSetting['scope.userInfo']) {
+          //这里调用授权
+          console.log("当前未授权");
+        } else {
+          //用户已经授权过了
+          console.log("当前已授权");
+          _this.stats = true,
+          _this.statuss = false;
+        }
+      } });
+
   },
-  methods: {} };exports.default = _default;
+  onShareAppMessage: function onShareAppMessage(res) {
+    return {
+      title: 'goodday天气，开心每一天',
+      path: '/pages/index/index',
+      imageUrl: '/static/share.png' };
+
+  },
+  methods: {
+    // 点击获取授权
+    logins: function logins() {
+      // console.log('fun')
+      uni.showModal({
+        // title: '提示',
+        content: '您需要登录账号',
+        success: function success(res) {
+          if (res.confirm) {
+            // console.log('用户点击确定');
+            uni.navigateTo({
+              url: 'grant' });
+
+          } else if (res.cancel) {
+            // console.log('用户点击取消');
+          }
+        } });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

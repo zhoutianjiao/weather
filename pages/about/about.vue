@@ -1,15 +1,23 @@
 <template>
 	<view class="mian">
-		<view class="xbox">
-			<view class="xhrbox">
-				<image src="../../static/404/x1.png" class="alls"></image>
+		<view class="myself">
+			<view class="mybox" @click="logins" v-if="statuss">
+				<image src="../../static/user/超人.png" style="width: 100%;height: 100%;"></image>
 			</view>
-			<view class="yxbox">
-				<view v-for="(item,index) in xhrlist" @key="index" class="sizebox">
-					<img :src="item.imgurl" class="alls"/>
-				</view>
+			<view class="mybox" v-if="stats">
+				<open-data type="userAvatarUrl"></open-data>
 			</view>
-			<view class="fontbox">小黄人把页面偷走了</view>
+			<view class="mytit" @click="logins" v-if="statuss">请登录</view>
+			<view class="mytit" v-if="stats"><open-data type="userNickName"></open-data></view>
+		</view>
+		<view style="margin-top: 40rpx;">
+			<uni-list>
+			    <uni-list-item  title="个人信息" showArrow="true" link="#"></uni-list-item>
+			    <uni-list-item  title="我的城市" showArrow="true" link="#"></uni-list-item>
+				<uni-list-item  title="关于我们" showArrow="true" link="#"></uni-list-item>
+				<uni-list-item  title="我的运动" showArrow="true" link="#"></uni-list-item>
+				 <!-- to="/pages/about/mysports" -->
+			</uni-list>
 		</view>
 	</view>
 </template>
@@ -18,55 +26,92 @@
 	export default {
 		data() {
 			return {
-				xhrlist:[
-					{
-						id:1,
-						imgurl:require("../../static/404/x2.png")
-					},
-					{
-						id:2,
-						imgurl:require("../../static/404/x3.png")
-					},
-					{
-						id:3,
-						imgurl:require("../../static/404/x4.png")
-					},
-					{
-						id:4,
-						imgurl:require("../../static/404/x5.png")
-					},
-					{
-						id:5,
-						imgurl:require("../../static/404/x6.png")
-					},
-					{
-						id:6,
-						imgurl:require("../../static/404/x7.png")
-					},
-					{
-						id:7,
-						imgurl:require("../../static/404/x8.png")
-					}
-				]
+				userinfo:{},
+				stats: false,
+				statuss:true
 			}
 		},
 		onLoad(){
-			
+			// 获取本地用户信息
+			let _this = this
+			uni.getStorage({
+			    key: 'userinfo',
+			    success: function (res) {
+					_this.userinfo = res.data
+					 console.log(_this.userinfo,'xxx');
+			    }
+			});
 		},
 		onShow(){
+			let _this = this
+			uni.getSetting({
+				// 判断用户是否授权
+				 success(res) {
+					console.log("授权：",res);
+					if (!res.authSetting['scope.userInfo']) {
+						//这里调用授权
+						console.log("当前未授权");
+					} else {
+						//用户已经授权过了
+						console.log("当前已授权");
+						_this.stats = true,
+						_this.statuss = false
+					}
+				 }
+			})
+		},
+		onShareAppMessage(res) {
+		   return {
+			 title: 'goodday天气，开心每一天',
+			 path: '/pages/index/index',
+			 imageUrl: '/static/share.png'
+		   }
 		},
 		methods: {
-	
+			// 点击获取授权
+			logins () {
+				// console.log('fun')
+				uni.showModal({
+				    // title: '提示',
+				    content: '您需要登录账号',
+				    success: function (res) {
+				        if (res.confirm) {
+				            // console.log('用户点击确定');
+							uni.navigateTo({
+							    url: 'grant'
+							});
+				        } else if (res.cancel) {
+				            // console.log('用户点击取消');
+				        }
+				    }
+				});
+			}
 		}
 	}
 </script>
 
 <style lang="scss">
-page{background: #4238ff;}
-.alls{width: 100%;height: 100%;}
-.xbox{width: 100%;     margin-top: 40%;}
-.xhrbox{width:100rpx;height: 100rpx;margin: 0 auto;}
-.sizebox{width: 80rpx;height: 80rpx;}
-.yxbox{display: flex;justify-content: center;align-item: center;margin-top: 5%;}
-.fontbox{font-size: 20px;font-weight: bold;color: white;text-align: center;}
+	page{
+		background: #F8F8F8;
+	}
+	//个人信息部分
+	.myself{
+		width: 100%;
+		height: 300rpx;
+		background: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-flow: column;
+	}
+	.mybox{
+		width: 130rpx;
+		height: 130rpx;
+		background: pink;
+		border-radius: 80rpx;
+	}
+	.mytit{
+		font-size: 30rpx;;
+		margin-top: 20rpx;
+	}
 </style>

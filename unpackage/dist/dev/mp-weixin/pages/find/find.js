@@ -136,58 +136,36 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
-    return {
-      xhrlist: [
-      {
-        id: 1,
-        imgurl: __webpack_require__(/*! ../../static/404/x2.png */ 36) },
-
-      {
-        id: 2,
-        imgurl: __webpack_require__(/*! ../../static/404/x3.png */ 37) },
-
-      {
-        id: 3,
-        imgurl: __webpack_require__(/*! ../../static/404/x4.png */ 38) },
-
-      {
-        id: 4,
-        imgurl: __webpack_require__(/*! ../../static/404/x5.png */ 39) },
-
-      {
-        id: 5,
-        imgurl: __webpack_require__(/*! ../../static/404/x6.png */ 40) },
-
-      {
-        id: 6,
-        imgurl: __webpack_require__(/*! ../../static/404/x7.png */ 41) },
-
-      {
-        id: 7,
-        imgurl: __webpack_require__(/*! ../../static/404/x8.png */ 42) }] };
-
+    return {};
 
 
   },
   onLoad: function onLoad() {
-
+    this.test();
   },
   onShow: function onShow() {
   },
-  methods: {} };exports.default = _default;
+  onShareAppMessage: function onShareAppMessage(res) {
+    return {
+      title: 'goodday天气，开心每一天',
+      path: '/pages/index/index',
+      imageUrl: '/static/share.png' };
+
+  },
+  methods: {
+    test: function test() {
+      var tian = this.$http.get('v7/weather/now?', {
+        location: '116.41,39.92',
+        key: '92789d4ac66d4447bf9e7c8469d1decf' }).
+      then(function (res) {
+        console.log(res);
+      }).catch(function (error) {
+        console.log(error);
+      });
+    } } };exports.default = _default;
 
 /***/ }),
 

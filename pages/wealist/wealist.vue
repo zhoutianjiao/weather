@@ -55,6 +55,13 @@
 		},
 		onShow(){
 		},
+		onShareAppMessage(res) {
+		   return {
+				 title: 'goodday天气，开心每一天',
+				 path: '/pages/index/index',
+				 imageUrl: '/static/share.png'
+		   }
+		},
 		methods: {
 	
 		}

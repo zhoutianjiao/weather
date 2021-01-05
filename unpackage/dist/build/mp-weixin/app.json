@@ -5,7 +5,10 @@
     "pages/find/find",
     "pages/about/about",
     "pages/index/lifedet",
-    "pages/404page/404page"
+    "pages/404page/404page",
+    "pages/404page/test",
+    "pages/about/grant",
+    "pages/about/mysports"
   ],
   "subPackages": [],
   "window": {

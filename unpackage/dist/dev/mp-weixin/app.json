@@ -5,7 +5,10 @@
     "pages/find/find",
     "pages/about/about",
     "pages/index/lifedet",
-    "pages/404page/404page"
+    "pages/404page/404page",
+    "pages/404page/test",
+    "pages/about/grant",
+    "pages/about/mysports"
   ],
   "subPackages": [],
   "window": {
@@ -50,6 +53,5 @@
       "desc": "本服务需要获取您的位置信息"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap78.json"
+  "usingComponents": {}
 }

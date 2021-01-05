@@ -13,20 +13,25 @@
   "libVersion": "",
   "appid": "wxee66d5fc851f1b77",
   "projectname": "goodday天气",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
       "list": []
     },
-    "miniprogram": {
+    "gamePlugin": {
       "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/about/about",
+          "pathName": "pages/about/about",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

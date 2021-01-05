@@ -1,16 +1,6 @@
 <template>
 	<view class="mian">
-		<view class="xbox">
-			<view class="xhrbox">
-				<image src="../../static/404/x1.png" class="alls"></image>
-			</view>
-			<view class="yxbox">
-				<view v-for="(item,index) in xhrlist" @key="index" class="sizebox">
-					<img :src="item.imgurl" class="alls"/>
-				</view>
-			</view>
-			<view class="fontbox">小黄人把页面偷走了</view>
-		</view>
+		<button class="btns" open-type="share">ERROR</button>
 	</view>
 </template>
 
@@ -18,55 +8,131 @@
 	export default {
 		data() {
 			return {
-				xhrlist:[
-					{
-						id:1,
-						imgurl:require("../../static/404/x2.png")
-					},
-					{
-						id:2,
-						imgurl:require("../../static/404/x3.png")
-					},
-					{
-						id:3,
-						imgurl:require("../../static/404/x4.png")
-					},
-					{
-						id:4,
-						imgurl:require("../../static/404/x5.png")
-					},
-					{
-						id:5,
-						imgurl:require("../../static/404/x6.png")
-					},
-					{
-						id:6,
-						imgurl:require("../../static/404/x7.png")
-					},
-					{
-						id:7,
-						imgurl:require("../../static/404/x8.png")
-					}
-				]
+				
 			}
 		},
 		onLoad(){
-			
+			this.test()
 		},
 		onShow(){
 		},
+		onShareAppMessage(res) {
+		 return {
+			 title: 'goodday天气，开心每一天',
+			 path: '/pages/index/index',
+			 imageUrl: '/static/share.png'
+		 }
+		},
 		methods: {
-	
+			test() {
+				const tian =  this.$http.get('v7/weather/now?',{
+					location:'116.41,39.92',
+					key: '92789d4ac66d4447bf9e7c8469d1decf'
+				}).then(function (res) {
+					console.log(res)
+				}).catch(function (error) {
+				    console.log(error);
+				});
+			}
 		}
 	}
 </script>
 
-<style lang="scss">
-page{background: #4238ff;}
-.alls{width: 100%;height: 100%;}
-.xbox{width: 100%;     margin-top: 40%;}
-.xhrbox{width:100rpx;height: 100rpx;margin: 0 auto;}
-.sizebox{width: 80rpx;height: 80rpx;}
-.yxbox{display: flex;justify-content: center;align-item: center;margin-top: 5%;}
-.fontbox{font-size: 20px;font-weight: bold;color: white;text-align: center;}
+<style lang="scss" >
+.mian {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F8F005;
+}
+
+button, button::after {
+  width: 380rpx;
+  height: 86rpx;
+  font-size: 36rpx;
+	font-weight: bold;
+  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3rpx;
+  line-height: 88rpx;
+  box-shadow: 6rpx 0rpx 0rpx #00E6F6;
+  outline: transparent;
+  position: relative;
+}
+
+button::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6rpx 0 0);
+  --slice-2: inset(50% -6rpx 30% 0);
+  --slice-3: inset(10% -6rpx 85% 0);
+  --slice-4: inset(40% -6rpx 43% 0);
+  --slice-5: inset(80% -6rpx 5% 0);
+  
+  content: 'ERROR';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3rpx -3rpx 0rpx #F8F005, 3rpx 3rpx 0rpx #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+button::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(1, end);
+  animation-duration:1.8s;
+  animation-iteration-count:infinite;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20rpx, -10rpx);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10rpx, 10rpx);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10rpx, 10rpx);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0rpx, 5rpx);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5rpx, 0rpx);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5rpx, 0rpx);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5rpx, 10rpx);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10rpx, 10rpx);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20rpx, -10rpx);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10rpx, 0rpx);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
 </style>

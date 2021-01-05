@@ -370,6 +370,13 @@ var _default = { data: function data() {return { timer: "", currentTime: new Dat
       clearInterval(this.timer); // 在Vue实例销毁前，清除我们的定时器
     }
   },
+  onShareAppMessage: function onShareAppMessage(res) {
+    return {
+      title: 'goodday天气，开心每一天',
+      path: '/pages/index/index',
+      imageUrl: '/static/share.png' };
+
+  },
   methods: {
     //时间过滤加零
     appendZero: function appendZero(obj) {
