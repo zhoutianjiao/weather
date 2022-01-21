@@ -155,4 +155,13 @@
   font-weight: bold;
   padding-bottom: 20rpx;
 }
+.iconbox {
+  width: 25px;
+  height: 25px;
+}
+.iconbox-two {
+  width: 25px;
+  height: 25px;
+  margin: 0 auto;
+}
 

@@ -61,7 +61,7 @@
 	}
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 page{background: #4238ff;}
 .alls{width: 100%;height: 100%;}
 .xbox{width: 100%;     margin-top: 40%;}

@@ -249,7 +249,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 var _qqmapWxJssdkMin = _interopRequireDefault(__webpack_require__(/*! ../../static/js/qqmap-wx-jssdk.min.js */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
 //
 //
 //
@@ -339,7 +347,8 @@ var _default = { data: function data() {return { timer: "", currentTime: new Dat
       district: '', //区
       longitude: '', //经度
       latitude: '', //纬度
-      lalde: '' //经纬度
+      lalde: '' //经纬度，
+      // imgSrc: ''
     };}, filters: { timego: function timego(e) {// console.log(e)
       //字符串截取
       var str = e.substring(11, 13); // console.log(str)
@@ -350,11 +359,7 @@ var _default = { data: function data() {return { timer: "", currentTime: new Dat
     }, 1000);uni.startPullDownRefresh({ success: function success(res) {// console.log(res);  //success 返回参数说明
       } }), this.locals(), this.tianqiapi(), this.wlapi(), this.kqzl(), this.shzs(), this.week();}, onShow: function onShow() {this.locals();}, onPullDownRefresh: function onPullDownRefresh() {//监听下拉刷新动作的执行方法，每次手动下拉刷新都会执行一次
     this.tianqiapi(), setTimeout(function () {uni.stopPullDownRefresh(); //停止下拉刷新动画
-    }, 1000);}, mounted: function mounted() {
-    var vm = this;
-    vm.timer = setInterval(function () {
-      var y = new Date().getFullYear();
-      var m = vm.appendZero(new Date().getMonth() + 1);
+    }, 1000);}, mounted: function mounted() {var vm = this;vm.timer = setInterval(function () {var y = new Date().getFullYear();var m = vm.appendZero(new Date().getMonth() + 1);
       var d = vm.appendZero(new Date().getDate());
       var ho = vm.appendZero(new Date().getHours());
       var mi = vm.appendZero(new Date().getMinutes());
@@ -449,7 +454,10 @@ var _default = { data: function data() {return { timer: "", currentTime: new Dat
         success: function success(res) {
           _this2.result = res.data.now;
           _this2.pandan = _this2.result.text;
-          // console.log(this.pandan);
+          // let inconum = this.result.icon
+          // console.log(inconum)
+          // this.imgSrc = "'././static/wea/${inconum}.png'"
+          // console.log(this.imgSrc);
         } });
 
     },

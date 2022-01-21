@@ -8,7 +8,12 @@
     "pages/404page/404page",
     "pages/404page/test",
     "pages/about/grant",
-    "pages/about/mysports"
+    "pages/about/mysports",
+    "pages/test/test",
+    "pages/test/finds",
+    "pages/find/addnote",
+    "pages/find/addnotedetail",
+    "pages/test/demo"
   ],
   "subPackages": [],
   "window": {
@@ -29,18 +34,6 @@
         "selectedIconPath": "static/tabars/home1.png"
       },
       {
-        "pagePath": "pages/wealist/wealist",
-        "text": "预告",
-        "iconPath": "static/tabars/list.png",
-        "selectedIconPath": "static/tabars/list1.png"
-      },
-      {
-        "pagePath": "pages/find/find",
-        "text": "发现",
-        "iconPath": "static/tabars/add.png",
-        "selectedIconPath": "static/tabars/add1.png"
-      },
-      {
         "pagePath": "pages/about/about",
         "text": "我的",
         "iconPath": "static/tabars/user.png",
@@ -53,5 +46,6 @@
       "desc": "本服务需要获取您的位置信息"
     }
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap45.json"
 }

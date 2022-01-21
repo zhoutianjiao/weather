@@ -1,0 +1,29 @@
+
+.c-slider.data-v-7f345db8 {
+  position: relative;
+  /* padding: 10px 0; */
+}
+.c-slider-bar.data-v-7f345db8 {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+.c-slider-block.data-v-7f345db8 {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  left: 0;
+  border-radius: 50%;
+  box-shadow: 0rpx 0rpx 6rpx #ccc;
+}
+.c-slider-active-bar.data-v-7f345db8 {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+

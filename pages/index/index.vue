@@ -13,7 +13,10 @@
 			<view class="weabox">
 				<view class="weabox-1">{{result.temp}}<text>°</text></view>
 				<view class="weabox-2">
-					<view>{{result.text}}</view>
+					<view style="display: flex;">
+						{{result.text}}
+						<view class="iconbox"><image :src="`../../static/wea/${result.icon}.png`"  alt="天气图标" style="width: 100%;height: 100%;"></image></view>
+					</view>
 					<view>&nbsp;&nbsp;|&nbsp;&nbsp;</view> 
 					<view class="tigbox">{{dt.category | wrcd}} {{dt.aqi}}</view>
 				</view>
@@ -44,6 +47,7 @@
 					<view v-for="(item,index) in twenty" @key="index">
 						<view style="width: 100rpx;text-align: center;">{{item.fxTime | timego}}</view>
 						<view style="text-align: center;">{{item.text}}</view>
+						<view class="iconbox-two"><image :src="`../../static/wea/${item.icon}.png`"  alt="天气图标" style="width: 100%;height: 100%;"></image></view>
 						<view style="text-align: center;">{{item.temp}}°</view>
 					</view>
 				</view>
@@ -102,7 +106,8 @@
 				 district:'', //区
 				 longitude: '', //经度
 				 latitude: '',  //纬度
-				 lalde: '' //经纬度
+				 lalde: '' //经纬度，
+				 // imgSrc: ''
 			}
 		},
 		filters:{
@@ -283,7 +288,10 @@
 				    success: (res) => {
 						this.result = res.data.now
 						this.pandan = this.result.text
-						 // console.log(this.pandan);
+						// let inconum = this.result.icon
+						// console.log(inconum)
+						// this.imgSrc = "'././static/wea/${inconum}.png'"
+						 // console.log(this.imgSrc);
 				    }
 				});
 			},
@@ -416,5 +424,14 @@
 	}
 	.lifezhshu{
 		border-bottom: 1px solid white;font-weight: bold;padding-bottom: 20rpx;
+	}
+	.iconbox{
+		width: 25px;
+		height: 25px;
+	}
+	.iconbox-two{
+		width: 25px;
+		height: 25px;
+		margin: 0 auto;
 	}
 </style>

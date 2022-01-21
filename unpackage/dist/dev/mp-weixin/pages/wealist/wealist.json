@@ -1,4 +1,6 @@
 {
-  "navigationBarTitleText": "预告",
-  "usingComponents": {}
+  "navigationBarTitleText": "推荐",
+  "usingComponents": {
+    "slider": "/components/slider/slider"
+  }
 }

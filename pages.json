@@ -11,13 +11,13 @@
 		{
 			"path": "pages/wealist/wealist",
 			"style": {
-				"navigationBarTitleText": "预告"
+				"navigationBarTitleText": "推荐"
 			}
 		},
 		{
 			"path": "pages/find/find",
 			"style": {
-				"navigationBarTitleText": "发现"
+				"navigationBarTitleText": "笔记"
 			}
 		},
 		{
@@ -70,6 +70,51 @@
             }
             
         }
+        ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/test/finds",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/find/addnote",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "编辑笔记",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/find/addnotedetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/test/demo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -88,18 +133,19 @@
 				"iconPath":"static/tabars/home.png",
 				"selectedIconPath":"static/tabars/home1.png"
 			},
+			// {
+			// 	"pagePath":"pages/wealist/wealist",
+			// 	"text":"推荐",
+			// 	"iconPath":"static/tabars/list.png",
+			// 	"selectedIconPath":"static/tabars/list1.png"
+			// },
+			// {
+			// 	"pagePath":"pages/find/find",
+			// 	"text":"笔记",
+			// 	"iconPath":"static/tabars/add.png",
+			// 	"selectedIconPath":"static/tabars/add1.png"
+			// },
 			{
-				"pagePath":"pages/wealist/wealist",
-				"text":"预告",
-				"iconPath":"static/tabars/list.png",
-				"selectedIconPath":"static/tabars/list1.png"
-			},
-			{
-				"pagePath":"pages/find/find",
-				"text":"发现",
-				"iconPath":"static/tabars/add.png",
-				"selectedIconPath":"static/tabars/add1.png"
-			},{
 				"pagePath":"pages/about/about",
 				"text":"我的",
 				"iconPath":"static/tabars/user.png",
